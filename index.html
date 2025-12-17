@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A simple Todo List app built with HTML, CSS, and JavaScript." />
+    <title>Todo List</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+
+    <main class="app" role="main">
+      <header class="app__header">
+        <div>
+          <h1 class="app__title">Todo List</h1>
+          <p class="app__subtitle">Add, edit, complete, and keep tasks saved on this device.</p>
+        </div>
+      </header>
+
+      <section class="card" aria-label="Add a new task">
+        <form id="todoForm" class="form" autocomplete="off">
+          <label class="sr-only" for="todoInput">New task</label>
+          <input
+            id="todoInput"
+            name="todo"
+            class="input"
+            type="text"
+            placeholder="What do you need to do?"
+            maxlength="200"
+            required
+          />
+          <button class="btn btn--primary" type="submit">Add</button>
+        </form>
+
+        <div class="toolbar" aria-label="Task controls">
+          <div class="toolbar__left">
+            <span id="itemsLeft" class="meta" aria-live="polite">0 items</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span id="savedState" class="meta" aria-live="polite">Saved</span>
+          </div>
+          <div class="toolbar__right">
+            <button id="clearCompletedBtn" class="btn btn--ghost" type="button">Clear completed</button>
+            <button id="clearAllBtn" class="btn btn--ghost" type="button">Clear all</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-label="Your tasks">
+        <ul id="todoList" class="list" aria-live="polite" aria-label="Todo items"></ul>
+
+        <div id="emptyState" class="empty" hidden>
+          <p class="empty__title">No tasks yet</p>
+          <p class="empty__hint">Add your first task above.</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p class="footer__text">
+          Tip: Press <kbd>Enter</kbd> to add. Use <kbd>Tab</kbd> to navigate and edit with the buttons.
+        </p>
+      </footer>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
